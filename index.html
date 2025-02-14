@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Commands for Open Source DBA</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; }
+        h2 { color: #2c3e50; }
+        pre { background: #f4f4f4; padding: 10px; border-left: 4px solid #3498db; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Linux Commands for Open Source DBA (Fresher Level)</h1>
+    
+    <h2>1. Basic Linux Navigation & File Management</h2>
+    <pre>
+pwd  # Show current directory
+ls -l  # List files with details
+ls -a  # Show hidden files
+cd /path/to/directory  # Change directory
+cd ..  # Move up one directory
+mkdir myfolder  # Create directory
+rmdir myfolder  # Remove empty directory
+rm -r myfolder  # Delete directory with files
+touch myfile.txt  # Create file
+cp file1.txt file2.txt  # Copy file
+mv file1.txt /path/  # Move or rename file
+cat myfile.txt  # View file content
+nano myfile.txt  # Edit file using nano
+vim myfile.txt  # Edit file using Vim
+    </pre>
+    
+    <h2>2. User & Permission Management</h2>
+    <pre>
+whoami  # Show current logged-in user
+id  # Display user ID and group ID
+sudo adduser dbadmin  # Add a new user
+sudo passwd dbadmin  # Set user password
+su - dbadmin  # Switch to another user
+groups  # Show user groups
+chmod 755 myscript.sh  # Grant execute permission
+chown dbadmin:dbgroup file.txt  # Change file owner
+    </pre>
+    
+    <h2>3. Process & System Monitoring</h2>
+    <pre>
+ps aux  # Show running processes
+top  # Display system processes
+htop  # Advanced process viewer (install if missing)
+df -h  # Show disk usage
+du -sh foldername  # Show folder size
+free -m  # Show memory usage
+uptime  # Show system uptime
+uname -a  # Show system information
+who  # Show logged-in users
+    </pre>
+    
+    <h2>4. Database Server Management (MySQL/PostgreSQL)</h2>
+    <pre>
+sudo systemctl start mysql  # Start MySQL
+sudo systemctl stop mysql  # Stop MySQL
+sudo systemctl restart mysql  # Restart MySQL
+sudo systemctl status mysql  # Check MySQL status
+
+sudo systemctl start postgresql  # Start PostgreSQL
+sudo systemctl stop postgresql  # Stop PostgreSQL
+sudo systemctl restart postgresql  # Restart PostgreSQL
+sudo systemctl status postgresql  # Check PostgreSQL status
+    </pre>
+    
+    <h2>5. MySQL / MariaDB Database Management</h2>
+    <pre>
+mysql -u root -p  # Log into MySQL
+SHOW DATABASES;  # List databases
+USE mydatabase;  # Switch to database
+SHOW TABLES;  # List tables
+SELECT * FROM users;  # Query a table
+CREATE DATABASE testdb;  # Create database
+DROP DATABASE testdb;  # Delete database
+    </pre>
+    
+    <h2>6. PostgreSQL Database Management</h2>
+    <pre>
+sudo -u postgres psql  # Log into PostgreSQL
+\l  # List databases
+\c mydatabase  # Switch to database
+\d  # List tables
+CREATE USER dbuser WITH PASSWORD 'password';  # Create user
+GRANT ALL PRIVILEGES ON DATABASE mydatabase TO dbuser;  # Grant privileges
+\q  # Exit PostgreSQL
+    </pre>
+    
+    <h2>7. Backup & Restore</h2>
+    <pre>
+mysqldump -u root -p mydatabase > backup.sql  # Backup MySQL
+mysql -u root -p mydatabase < backup.sql  # Restore MySQL
+pg_dump -U postgres mydatabase > backup.sql  # Backup PostgreSQL
+psql -U postgres mydatabase < backup.sql  # Restore PostgreSQL
+    </pre>
+    
+    <h2>8. Networking & Firewall</h2>
+    <pre>
+netstat -tulnp  # Show open ports
+ss -tulnp  # Show listening ports (alternative to netstat)
+ping google.com  # Test network connectivity
+curl -I https://example.com  # Check HTTP response headers
+telnet 192.168.1.1 3306  # Check if MySQL port is open
+sudo ufw allow 3306/tcp  # Allow MySQL in firewall
+sudo ufw enable  # Enable firewall
+    </pre>
+    
+    <h2>9. Logs & Debugging</h2>
+    <pre>
+sudo tail -f /var/log/syslog  # View system logs
+sudo tail -f /var/log/mysql/error.log  # MySQL logs
+sudo tail -f /var/log/postgresql/postgresql.log  # PostgreSQL logs
+journalctl -u mysql --no-pager  # Show MySQL logs
+journalctl -u postgresql --no-pager  # Show PostgreSQL logs
+    </pre>
+    
+    <h2>10. Package Management</h2>
+    <pre>
+sudo apt update && sudo apt upgrade -y  # Update system packages
+sudo yum update -y  # Update system packages (CentOS/RHEL)
+sudo apt install mysql-server -y  # Install MySQL
+sudo apt install postgresql -y  # Install PostgreSQL
+sudo apt install nano vim htop -y  # Install utilities
+sudo systemctl enable mysql  # Enable MySQL at startup
+sudo systemctl enable postgresql  # Enable PostgreSQL at startup
+    </pre>
+    
+</body>
+</html>
